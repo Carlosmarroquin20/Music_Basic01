@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music World</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Music World</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#genres">Genres</a></li>
+                <li><a href="#artists">Artists</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="hero">
+                <h2>Discover the Beat of the World</h2>
+                <p>Immerse yourself in a universe of sounds, genres, and artists.</p>
+                <button class="cta-button">Explore Now</button>
+            </div>
+        </section>
+        <section id="genres">
+            <h2>Music Genres</h2>
+            <div class="genres-grid">
+                <div class="genre-card">
+                    <img src="assets/images/pop.jpg" alt="Pop Music">
+                    <h3>Pop</h3>
+                    <p>Catchy melodies and vibrant rhythms.</p>
+                </div>
+                <div class="genre-card">
+                    <img src="assets/images/rock.jpg" alt="Rock Music">
+                    <h3>Rock</h3>
+                    <p>Raw energy and powerful guitar riffs.</p>
+                </div>
+                <div class="genre-card">
+                    <img src="assets/images/electronic.jpg" alt="Electronic Music">
+                    <h3>Electronic</h3>
+                    <p>Futuristic beats and immersive sounds.</p>
+                </div>
+            </div>
+        </section>
+        <section id="artists">
+            <h2>Featured Artists</h2>
+            <div class="artists-grid">
+                <!-- Artists will be added dynamically via JS -->
+            </div>
+        </section>
+        <section id="player">
+            <h2>Music Player</h2>
+            <div class="audio-player">
+                <audio id="audio" src="assets/audio/sample.mp3"></audio>
+                <button id="play-pause">Play</button>
+                <input type="range" id="seek-bar" value="0" max="100">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Music World. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

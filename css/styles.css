@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff007a;
+    text-shadow: 0 0 5px #ff007a;
+}
+
+main {
+    margin-top: 100px;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin: 0;
+    color: #00eaff;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.cta-button {
+    background-color: #ff007a;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ff007a;
+}
+
+section {
+    padding: 50px;
+    text-align: center;
+}
+
+.genres-grid, .artists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.genre-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.genre-card:hover {
+    transform: scale(1.05);
+}
+
+.genre-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.genre-card h3 {
+    margin: 10px 0;
+    color: #00eaff;
+}
+
+.genre-card p {
+    margin: 0 10px 20px;
+    font-size: 0.9rem;
+}
+
+.audio-player {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#play-pause {
+    background-color: #ff007a;
+    border: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#seek-bar {
+    width: 200px;
+}
+
+footer {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
