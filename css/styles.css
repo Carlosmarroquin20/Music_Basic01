@@ -1,157 +1,357 @@
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #121212;
-    color: #ffffff;
+/* ==================================== */
+/* 1. Variables Globales y Reset Básico */
+/* ==================================== */
+:root {
+    --color-bg-primary: #121212;
+    --color-bg-secondary: #1a1a1a;
+    --color-bg-card: #1e1e1e;
+    --color-text-light: #ffffff;
+    --color-highlight-blue: #00eaff;
+    --color-highlight-pink: #ff007a;
+    --font-family: 'Poppins', sans-serif;
 }
 
-header {
-    background-color: #1a1a1a;
-    padding: 20px;
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* ==================================== */
+/* 2. Estilos del Header y Navegación */
+/* ==================================== */
+.main-header {
+    background-color: var(--color-bg-secondary);
+    padding: 15px 30px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-header h1 {
+.logo a {
+    text-decoration: none;
+}
+
+.main-header h1 {
     margin: 0;
-    font-size: 2.5rem;
-    text-align: center;
-    color: #00eaff;
-    text-shadow: 0 0 10px #00eaff;
+    font-size: 1.8rem;
+    color: var(--color-highlight-blue);
+    text-shadow: 0 0 8px var(--color-highlight-blue);
 }
 
-nav ul {
+/* Navegación en Desktop */
+.nav-links {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 25px;
 }
 
-nav a {
-    color: #ffffff;
+.nav-links a {
+    color: var(--color-text-light);
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    padding: 5px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-nav a:hover {
-    color: #ff007a;
-    text-shadow: 0 0 5px #ff007a;
+.nav-links a:hover {
+    color: var(--color-highlight-pink);
+    border-bottom: 2px solid var(--color-highlight-pink);
 }
 
+/* Estilos del Botón de Menú (Solo visible en móvil) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--color-highlight-pink);
+    color: var(--color-text-light);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background-color: var(--color-highlight-pink);
+}
+
+/* ==================================== */
+/* 3. Estilos de Main y Secciones */
+/* ==================================== */
 main {
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
+section {
+    padding: 80px 50px;
+    text-align: center;
+}
+
+/* Estilos Hero */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../assets/images/electronic.jpg'); /* REVISAR RUTA */
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    background-attachment: fixed;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-bottom: 5px solid var(--color-highlight-pink);
 }
 
 .hero h2 {
-    font-size: 3.5rem;
-    margin: 0;
-    color: #00eaff;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--color-highlight-blue);
+    text-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
+    font-weight: 800;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin: 10px 0;
+    font-size: 1.4rem;
+    max-width: 600px;
+    margin-bottom: 30px;
 }
 
+/* Botón CTA */
 .cta-button {
-    background-color: #ff007a;
+    background-color: var(--color-highlight-pink);
     border: none;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    color: #ffffff;
+    padding: 18px 35px;
+    font-size: 1.25rem;
+    color: var(--color-text-light);
     cursor: pointer;
-    border-radius: 25px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #ff007a;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 0, 122, 0.4);
+    background-color: #ff3399;
 }
 
-section {
-    padding: 50px;
-    text-align: center;
-}
-
+/* Grillas (Genres/Artists) */
 .genres-grid, .artists-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
 }
 
 .genre-card {
-    background-color: #1e1e1e;
-    border-radius: 10px;
+    background-color: var(--color-bg-card);
+    border-radius: 12px;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .genre-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 234, 255, 0.2);
 }
 
 .genre-card img {
     width: 100%;
-    height: 150px;
+    height: 200px;
     object-fit: cover;
 }
 
 .genre-card h3 {
-    margin: 10px 0;
-    color: #00eaff;
+    margin: 15px 0 5px;
+    color: var(--color-highlight-blue);
+    font-size: 1.5rem;
 }
 
 .genre-card p {
-    margin: 0 10px 20px;
-    font-size: 0.9rem;
+    margin: 0 15px 25px;
+    font-size: 1rem;
+    opacity: 0.8;
 }
 
+/* Reproductor de Audio */
 .audio-player {
-    background-color: #1e1e1e;
-    padding: 20px;
+    background-color: var(--color-bg-card);
+    padding: 25px;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
-#play-pause {
-    background-color: #ff007a;
-    border: none;
-    padding: 10px 20px;
-    color: #ffffff;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#seek-bar {
-    width: 200px;
-}
-
-footer {
-    background-color: #1a1a1a;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    bottom: 0;
+.audio-player audio {
     width: 100%;
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Formulario de Contacto */
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--color-bg-card);
+    border-radius: 12px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-highlight-blue);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background-color: #2a2a2a;
+    color: var(--color-text-light);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-highlight-pink);
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 0, 122, 0.5);
+}
+
+.contact-form .cta-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--color-bg-secondary);
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.copyright {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.footer-links a {
+    color: var(--color-highlight-blue);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-highlight-pink);
+}
+
+/* ==================================== */
+/* 4. Media Queries (Responsive) */
+/* ==================================== */
+@media (max-width: 768px) {
+    
+    /* Adaptación del Header */
+    .main-header {
+        /* Permite que los elementos se apilen (logo y botón de menú arriba, nav abajo) */
+        flex-wrap: wrap; 
+        padding: 15px 20px;
+    }
+    
+    .logo {
+        /* Permite que el logo ocupe el espacio necesario */
+        flex-grow: 1; 
+    }
+    
+    .main-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    /* Mostrar el botón de menú para activar/desactivar la navegación */
+    .menu-toggle {
+        display: block; 
+    }
+
+    /* Ocultar la navegación principal por defecto en móvil */
+    nav {
+        order: 3; /* Asegura que la navegación aparezca debajo del logo y el botón */
+        width: 100%;
+        display: none; 
+    }
+    
+    /* Clase que se agrega con JavaScript para mostrar el menú */
+    nav.active {
+        display: block;
+    }
+    
+    .nav-links {
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        text-align: center;
+        padding: 10px 0;
+        border-top: 1px solid #333;
+        margin-top: 10px;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+    }
+    
+    .nav-links a {
+        display: block; /* Hace que el área de clic sea más grande */
+        padding: 10px 0;
+        font-size: 1.1rem;
+    }
+
+    /* Adaptación de Contenido General */
+    main {
+        margin-top: 60px; /* Reducir el margen superior para pantallas más pequeñas .... */
+    }
+    
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+    
+    /* Grid pasa a una sola columna */
+    .genres-grid, .artists-grid {
+        grid-template-columns: 1fr;
+    }
 }

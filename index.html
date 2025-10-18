@@ -3,71 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music World</title>
+    <title>Music World | Explore the Beat</title>
+    <link rel="preload" href="css/styles.css" as="style">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,800;1,400&display=swap">
 </head>
 <body>
-    <header>
-        <h1>Music World</h1>
-        <nav>
-            <ul>
+    <header class="main-header">
+        <div class="logo">
+            <a href="#home"><h1>Music World</h1></a>
+        </div>
+        <nav aria-label="Main Navigation">
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#genres">Genres</a></li>
                 <li><a href="#artists">Artists</a></li>
+                <li><a href="#player">Player</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-navigation">
+            Menu
+        </button>
     </header>
 
-    <main>
-        <section id="home">
+    <main id="main-content">
+        <section id="home" aria-labelledby="home-heading">
             <div class="hero">
-                <h2>Discover the Beat of the World</h2>
+                <h2 id="home-heading">Discover the Beat of the World</h2>
                 <p>Immerse yourself in a universe of sounds, genres, and artists.</p>
-                <button class="cta-button">Explore Now</button>
+                <a href="#genres" class="cta-button">Explore Genres Now</a>
             </div>
         </section>
-        <section id="genres">
-            <h2>Music Genres</h2>
+
+        <section id="genres" aria-labelledby="genres-heading">
+            <h2 id="genres-heading">Explore Music Genres</h2>
             <div class="genres-grid">
-                <div class="genre-card">
-                    <img src="assets/images/pop.jpg" alt="Pop Music">
+                <article class="genre-card">
+                    <img src="assets/images/pop.jpg" alt="Artwork for Pop Music" loading="lazy">
                     <h3>Pop</h3>
-                    <p>Catchy melodies and vibrant rhythms.</p>
-                </div>
-                <div class="genre-card">
-                    <img src="assets/images/rock.jpg" alt="Rock Music">
+                    <p>Catchy melodies and vibrant rhythms, the sound of the moment.</p>
+                </article>
+                <article class="genre-card">
+                    <img src="assets/images/rock.jpg" alt="Artwork for Rock Music" loading="lazy">
                     <h3>Rock</h3>
-                    <p>Raw energy and powerful guitar riffs.</p>
-                </div>
-                <div class="genre-card">
-                    <img src="assets/images/electronic.jpg" alt="Electronic Music">
+                    <p>Raw energy, powerful guitar riffs, and rebellious anthems.</p>
+                </article>
+                <article class="genre-card">
+                    <img src="assets/images/electronic.jpg" alt="Artwork for Electronic Music" loading="lazy">
                     <h3>Electronic</h3>
-                    <p>Futuristic beats and immersive sounds.</p>
-                </div>
+                    <p>Futuristic beats, immersive sounds, perfect for dancing.</p>
+                </article>
             </div>
         </section>
-        <section id="artists">
-            <h2>Featured Artists</h2>
+
+        <section id="artists" aria-labelledby="artists-heading">
+            <h2 id="artists-heading">Featured Artists</h2>
             <div class="artists-grid">
-                <!-- Artists will be added dynamically via JS -->
+                <p>Check back soon for featured artists!</p>
             </div>
         </section>
-        <section id="player">
-            <h2>Music Player</h2>
+
+        <section id="player" aria-labelledby="player-heading">
+            <h2 id="player-heading">Music Player</h2>
             <div class="audio-player">
-                <audio id="audio" src="assets/audio/sample.mp3"></audio>
-                <button id="play-pause">Play</button>
-                <input type="range" id="seek-bar" value="0" max="100">
-            </div>
+                <audio controls id="audio" src="assets/audio/MusicTest.mp3" preload="metadata" title="Sample Track"></audio>
+                </div>
+        </section>
+        
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Get in Touch</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+                </div>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Music World. All rights reserved.</p>
+    <footer class="main-footer">
+        <p class="copyright">&copy; 2025 Music World. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>
